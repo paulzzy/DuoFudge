@@ -4,7 +4,7 @@ A Chrome extension that allows users to easily authenticate with the Duo Prompt 
 
 <img src="screenshots/Screen%20Shot%202021-02-08%20at%2010.13.39%20AM.png" width="600">
 
-Developed during UCLA HOTH 8 Hackathon. 
+Developed during the UCLA HOTH 8 Hackathon. 
 
 ## Overview
 
@@ -52,4 +52,4 @@ You may change the device name to something like ```Easy Duo Authentication```. 
 ## Notes
 1. Incorporated codes/ideas from https://github.com/revalo/duo-bypass and https://github.com/jiangts/JS-OTP. 
 2. Due to the CORS (Cross-Origin Resource Sharing) HTTP-header mechanism, I cannot fetch data directly from Duo using JavaScript, resulting in the extra step using Python. 
-3. This project was developed in one day so it does not contain many codes that check for error/bad inputs. If you feel that something is wrong or the extension does not work properly, you could remove it from Chrome and do the Set Up again. 
+3. This project was developed in one day so it does not contain many codes that check for errors/bad inputs. If you feel that something is wrong or the extension does not work properly, you could remove it from Chrome and do the Set Up again. 
