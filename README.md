@@ -50,6 +50,10 @@ You may change the device name to something like ```Easy Duo Authentication```. 
 <img src="screenshots/Screen%20Shot%202021-02-08%20at%2010.15.36%20AM.png" width="400">
 
 ## Notes
-1. Incorporated codes/ideas from https://github.com/revalo/duo-bypass and https://github.com/jiangts/JS-OTP. 
+1. Incorporated ideas/codes from https://github.com/revalo/duo-bypass and https://github.com/jiangts/JS-OTP. 
 2. Due to the CORS (Cross-Origin Resource Sharing) HTTP-header mechanism, I cannot fetch data directly from Duo using JavaScript, resulting in the extra step using Python. 
 3. This project was developed in one day so it does not contain many codes that check for errors/bad inputs. If you feel that something is wrong or the extension does not work properly, you could remove it from Chrome and do the Set Up again. 
+
+## Future Improvements
+1. Use a reverse proxy to solve the CORS problem mentioned above. 
+2. Design advanced features such as one-click auto-login, etc. 
