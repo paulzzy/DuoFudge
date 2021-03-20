@@ -41,7 +41,7 @@ Choose ```Tablet```, choose either ```iOS``` or ```Android```, and click ```Cont
 
 7. You're all set! Now every time authenticating with Duo, **open the extension to get your passcode**. Regardless of the current device (**it doesn't need to be the one you just added**), paste the passcode and log in. 
 
-<img src="screenshots/auth_demo.png" width="450">
+<img src="screenshots/auth_demo.png" width="550">
 
 ## Notes
 1. Incorporated ideas/codes from https://github.com/revalo/duo-bypass and https://github.com/jiangts/JS-OTP. 
