@@ -2,7 +2,7 @@
 
 A Chrome extension that allows users to easily authenticate with the Duo Prompt on a computer. 
 
-<img src="screenshots/demo.gif" width="600">
+<img src="screenshots/auth_demo.gif" width="600">
 
 Developed during the UCLA HOTH 8 Hackathon. 
 
