@@ -1,4 +1,4 @@
-# Easy Duo Authentication
+# Easy Duo Authentication (Updating...will publish to the Chrome Web Store soon)
 
 A Chrome extension that allows users to easily authenticate with the Duo Prompt on a computer. 
 
