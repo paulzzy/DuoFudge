@@ -1,10 +1,10 @@
-# Easy Duo Authentication (Updating...will publish to the Chrome Web Store soon)
+# Easy Duo Authentication
 
 A Chrome extension that allows users to easily authenticate with the Duo Prompt on a computer. 
 
 <img src="screenshots/auth_demo.gif" width="600">
 
-Developed during the UCLA HOTH 8 Hackathon. 
+Initially developed during the UCLA HOTH 8 Hackathon. 
 
 ## Overview
 
@@ -18,42 +18,33 @@ C += 1
 Once the authenticated inputs a passcode, the authenticator will verify the passcode by calculating HOTP(K, C) for C in a reasonable interval [C, C+n]. If a match is found, then the authentication succeeds. Therefore, if we manage to get the secret key from Duo, we can calculate the exact same passcodes as Duo would. 
 
 ## Set Up
-1. Download the codes as ZIP or clone this repository.
-2. In Google Chrome, navigate to ```chrome://extensions```, enable ```Developer Mode```, click ```Load Unpacked```, and select the downloaded/cloned folder. Pin the extension for later convenience. 
+1. Add **Easy Duo Authentication** from the Chrome Web Store (link coming soon). **Pin it** for later convenience. 
 
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%209.38.03%20AM.png" width="300">
+<img src="screenshots/pin.png" width="350">
 
-3. Open a Duo authentication page, click ```Add a new device```. 
+If you open the extension, it should look like this. 
 
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%209.43.52%20AM.png" width="400">
+<img src="screenshots/start.png" width="350">
 
-Choose ```Tablet```, choose either ```iOS``` or ```Android```, and click ```Continue```. Then, click ```I have Duo Mobile installed```, and click ```Email me an activation link instead```. Enter your email and get a one-time activation link (in the form ```https://m-*.duosecurity.com/*```). 
+2. Open a Duo authentication page, click ```Add a new device```. 
 
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%209.48.05%20AM.png" width="400">
+<img src="screenshots/add_device.png" width="450">
 
-4. Open terminal, navigate to the directory, run the following, and get a HOTP Secret. 
- ```bash
- pip install requests
- ```
- ```bash
- python3 generateHOTPSecret.py https://m-(your activation link)
- ```
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%209.58.07%20AM.png" width="450">
+Choose ```Tablet```, choose either ```iOS``` or ```Android```, and click ```Continue```. Then, click ```I have Duo Mobile installed```, and click ```Email me an activation link instead```. Enter your email and **get a one-time activation link** (in the form **https&#8203;://m-x.duosecurity.com/x**). 
+
+<img src="screenshots/get_link.png" width="450">
  
-5. In Chrome, click the extension and input the HOTP Secret. 
-6. Back to the ```Activate Duo Mobile by Email``` page, click ```Continue```.
+5. In Chrome, **open the extension** and **input the one-time activation link**. Wait till a "set up successful" message appears. 
+6. (Optional) Back to the ```Activate Duo Mobile by Email``` page, click ```Continue```, and change the device name (e.g. to ```Easy Duo Authentication```). 
 
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%2010.05.41%20AM.png" width="400">
+<img src="screenshots/continue_and_rename.png" width="450">
 
-You may change the device name to something like ```Easy Duo Authentication```. Also, set it as the ```Default Device``` for convenience. 
+7. You're all set! Now every time authenticating with Duo, **open the extension to get your passcode**. Regardless of the current device (**it doesn't need to be the one you just added**), paste the passcode and log in. 
 
-<img src="screenshots/Screen%20Shot%202021-02-08%20at%2010.15.36%20AM.png" width="400">
+<img src="screenshots/auth_demo.png" width="450">
 
 ## Notes
 1. Incorporated ideas/codes from https://github.com/revalo/duo-bypass and https://github.com/jiangts/JS-OTP. 
-2. Due to the CORS (Cross-Origin Resource Sharing) HTTP-header mechanism, I cannot fetch data directly from Duo using JavaScript, resulting in the extra step using Python. 
-3. This project was developed in one day so it does not contain many codes that check for errors/bad inputs. If you feel that something is wrong or the extension does not work properly, you could remove it from Chrome and do the Set Up again. 
-
-## Future Improvements
-1. Use a reverse proxy to solve the CORS problem mentioned above. 
-2. Design advanced features such as one-click auto-login, etc. 
+2. Used CORS Anywhere (https://github.com/Rob--W/cors-anywhere), a reverse proxy that deals with the Cross-Origin Resource Sharing mechanism.
+3. Don’t open the extension or click the “Next Code” button for too many times without logging in (i.e., don’t go too ahead of the Duo server), otherwise Duo may not recognize the new passcodes anymore. In this case, click the “Previous Code” button to go back and find the right passcode.
+4. If you catch any problems or have any advice, please contact me at y.shen@ucla.edu or sparkshen0807@gmail.com. Thank you so much!
