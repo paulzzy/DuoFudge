@@ -3,7 +3,6 @@
     "version": "1.0",
     "description": "A Chrome extension that allows users to easily authenticate with the Duo Prompt on a computer.",
     "permissions": [
-        "activeTab", 
         "storage"
     ],
     "browser_action": {
