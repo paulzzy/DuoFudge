@@ -51,7 +51,7 @@ chrome.storage.sync.get(null, function (data) {
 
         document.getElementById('prev').onclick = function () {
             if (count <= 0) {
-                alert("There is no previous code.");
+                alert("There is no previous passcode.");
                 return;
             }
             count -= 1;
