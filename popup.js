@@ -1,55 +1,75 @@
 // chrome.storage.sync.clear(); 
 
 chrome.storage.sync.get(null, function (data) {
-  let HOTPSecret = data.HOTPSecret;
-  if (HOTPSecret == undefined) {
-      document.getElementById('submit').onclick = function () {
-          HOTPSecret = document.getElementById('secret').value;
-          chrome.storage.sync.set({ HOTPSecret });
-          document.getElementById('setUp').classList.add('hidden'); 
-          document.getElementById('setUpSuccess').classList.remove('hidden'); 
-      };
-  }
+    let HOTPSecret = data.HOTPSecret;
+    if (HOTPSecret == undefined) // the user has not inputed the correct activation link
+    {
+        document.getElementById('submit').onclick = function () {
+            // Get HOTP secret from Duo
+            let link = document.getElementById('link').value;
+            let host = 'api' + link.substring(link.indexOf('-'), link.indexOf('com') + 3);
+            let key = link.substring(link.lastIndexOf('/') + 1);
+            let duoURL = 'https://' + host + '/push/v2/activation/' + key + '?customer_protocol=1';
+            let cors_anywhere = 'https://sparkshen02.herokuapp.com/'; // my own instance of CORS Anywhere
+            duoURL = cors_anywhere + duoURL;
 
-  else {
-      document.getElementById('setUp').classList.add('hidden');
-      document.getElementById('setUpSuccess').classList.add('hidden'); 
-      document.getElementById('displayPasscode').classList.remove('hidden');
+            let http = new XMLHttpRequest();
+            http.open('POST', duoURL, true);
+            http.onload = function () {
+                let obj = JSON.parse(this.responseText);
+                if (obj.stat == 'OK') { // on success
+                    HOTPSecret = obj.response.hotp_secret;
+                    chrome.storage.sync.set({ HOTPSecret });
+                    document.getElementById('setUp').classList.add('hidden');
+                    document.getElementById('setUpSuccess').classList.remove('hidden');
+                }
+                else // on failure
+                    alert('Something went wrong. Maybe the activation link has been used.\n\nPlease try to redo the previous steps. Thank you!')
+            };
+            http.send();
+        };
+    }
 
-      function calculatePasscode() {
-          let HOTP = new jsOTP.hotp();
-          return HOTP.getOtp(HOTPSecret, count);
-      }
+    else // calculate and display the next HOTP passcode
+    {
+        document.getElementById('setUp').classList.add('hidden');
+        document.getElementById('setUpSuccess').classList.add('hidden');
+        document.getElementById('displayPasscode').classList.remove('hidden');
 
-      document.getElementById('next').onclick = function () {
-          count += 1;
-          passcodes.push(calculatePasscode(count));
-          document.getElementById('passcode').innerHTML = passcodes[count];
-          chrome.storage.sync.set({ passcodes });
-          chrome.storage.sync.set({ count });
-      };
+        function calculatePasscode() {
+            let HOTP = new jsOTP.hotp();
+            return HOTP.getOtp(HOTPSecret, count);
+        }
 
-      document.getElementById('prev').onclick = function () {
-          if (count <= 0) {
-              alert("There is no previous code.");
-              return;
-          }
-          count -= 1;
-          passcodes.pop();
-          document.getElementById('passcode').innerHTML = passcodes[count];
-          chrome.storage.sync.set({ passcodes });
-          chrome.storage.sync.set({ count });
-      };
+        document.getElementById('next').onclick = function () {
+            count += 1;
+            passcodes.push(calculatePasscode(count));
+            document.getElementById('passcode').innerHTML = passcodes[count];
+            chrome.storage.sync.set({ passcodes });
+            chrome.storage.sync.set({ count });
+        };
 
-      let count = data.count;
-      let passcodes = data.passcodes;
-      let HOTPSecret = data.HOTPSecret;
-      if (count == undefined) {
-          count = -1;
-          passcodes = [];
-      }
-      document.getElementById('next').click();
-  }
+        document.getElementById('prev').onclick = function () {
+            if (count <= 0) {
+                alert("There is no previous code.");
+                return;
+            }
+            count -= 1;
+            passcodes.pop();
+            document.getElementById('passcode').innerHTML = passcodes[count];
+            chrome.storage.sync.set({ passcodes });
+            chrome.storage.sync.set({ count });
+        };
+
+        let count = data.count;
+        let passcodes = data.passcodes;
+        HOTPSecret = data.HOTPSecret;
+        if (count == undefined) {
+            count = -1;
+            passcodes = [];
+        }
+        document.getElementById('next').click();
+    }
 });
 
 // Codes from https://github.com/jiangts/JS-OTP to generate HOTP passcodes
