@@ -18,7 +18,7 @@ C += 1
 Once the authenticated inputs a passcode, the authenticator will verify the passcode by calculating HOTP(K, C) for C in a reasonable interval [C, C+n]. If a match is found, then the authentication succeeds. Therefore, if we manage to get the secret key from Duo, we can calculate the exact same passcodes as Duo would. 
 
 ## Set Up
-1. Add **Easy Duo Authentication** from the Chrome Web Store (link coming soon). **Pin it** for later convenience. 
+1. Add **[Easy Duo Authentication](https://chrome.google.com/webstore/detail/easy-duo-authentication/gminifhfphcinahingelhehkfagoghjk)** from the Chrome Web Store. **Pin it** for later convenience. 
 
 <img src="screenshots/pin.png" width="350">
 
