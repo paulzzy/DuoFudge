@@ -34,7 +34,7 @@ Choose ```Tablet```, choose either ```iOS``` or ```Android```, and click ```Cont
 
 <img src="screenshots/get_link.png" width="450">
  
-5. In Chrome, **open the extension** and **sumbit the one-time activation link** (don't submit twice or an alert message will appear). Wait until a "set up successful" message appears. 
+5. In Chrome, **open the extension** and **sumbit the one-time activation link**. Wait until a "set up successful" message appears. 
 6. (Optional) Back to the ```Activate Duo Mobile by Email``` page, click ```Continue```, and change the device name (e.g. to ```Easy Duo Authentication```). 
 
 <img src="screenshots/continue_and_rename.png" width="450">
