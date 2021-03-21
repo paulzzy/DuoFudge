@@ -24,7 +24,7 @@ chrome.storage.sync.get(null, function (data) {
                     document.getElementById('setUpSuccess').classList.remove('hidden');
                 }
                 else // on failure
-                    alert('Something went wrong. Maybe the activation link has been used.\n\nPlease try to redo the previous steps. Thank you!')
+                    alert('Something went wrong. Maybe the activation link has been used.\n\nPlease retry the previous steps. Thank you!')
             };
             http.send();
         };
