@@ -2,7 +2,7 @@
 
 chrome.storage.sync.get(null, function (data) {
     let HOTPSecret = data.HOTPSecret;
-    if (HOTPSecret == undefined) // the user has not inputed the correct activation link
+    if (HOTPSecret == undefined) // the user has not inputed a correct activation link
     {
         document.getElementById('submit').onclick = function () {
             // Get HOTP secret from Duo
