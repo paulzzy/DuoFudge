@@ -1,6 +1,6 @@
 {
     "name": "Easy Duo Authentication",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Allows users to easily authenticate with the Duo Prompt on Chrome.",
     "permissions": [
         "storage"
