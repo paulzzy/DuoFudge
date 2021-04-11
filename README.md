@@ -1,6 +1,6 @@
 # Easy Duo Authentication
  
-A Chrome extension that gives you passcodes for [the Duo Multi-Factor Authentication](https://guide.duo.com/prompt).
+A Chrome extension that gives users passcodes for [the Duo Multi-Factor Authentication](https://guide.duo.com/prompt).
 
 <img src="screenshots/auth_demo.gif" width="600">
 
