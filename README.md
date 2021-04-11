@@ -1,6 +1,6 @@
 # Easy Duo Authentication
-
-A Chrome extension that allows users to easily authenticate with the Duo Prompt on a computer. 
+ 
+A Chrome extension that gives users passcodes for [the Duo Multi-Factor Authentication](https://guide.duo.com/prompt).
 
 <img src="screenshots/auth_demo.gif" width="600">
 
@@ -8,7 +8,7 @@ Initially developed during the UCLA HOTH 8 Hackathon.
 
 ## Overview
 
-[The Duo Authentication](https://guide.duo.com/prompt) uses a one-time password algorithm called [HOTP (HMAC-based One-time Password)](https://tools.ietf.org/html/rfc4226) to generate passcodes. For HOTP, the authenticator and the authenticated share a secret key K (an arbitrary byte string) and a counter C. Each one-time passcode is calculated as such:
+The Duo Authentication uses a one-time password algorithm called [HOTP (HMAC-based One-time Password)](https://tools.ietf.org/html/rfc4226) to generate passcodes. For HOTP, the authenticator and the authenticated share a secret key K (an arbitrary byte string) and a counter C. Each one-time passcode is calculated as such:
 
 ```
 HOTP(K, C) = truncate(HMACH(K, C))
@@ -26,7 +26,7 @@ If you open the extension, it should look like this.
 
 <img src="screenshots/start.png" width="350">
 
-2. Open a Duo authentication page, click ```Add a new device```. 
+2. Log in to a Duo authentication page, click ```Add a new device```. 
 
 <img src="screenshots/add_device.png" width="450">
 
