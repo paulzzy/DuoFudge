@@ -4,7 +4,7 @@ A Firefox extension that automatically completes (fudges) [Duo two-factor authen
 
 <img src="screenshots/auth_demo.gif" width="600">
 
-Forked from [Easy Duo Authentication](https://github.com/SparkShen02/Easy-Duo-Authentication), which sadly only works with Chrome. Special thanks to [Enoch Xu](https://github.com/enochxu) for inflicting, or rather introducing, this upon me.
+Forked from [Easy Duo Authentication](https://github.com/SparkShen02/Easy-Duo-Authentication), which sadly only works with Chrome. Special thanks to [Enoch Xu](https://github.com/enochxu) for making the Duo login automatic and for introducing me to the extension.
 
 ## Overview
 

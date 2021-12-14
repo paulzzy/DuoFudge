@@ -12,7 +12,7 @@ body {
     font-family: sans-serif;
 }
 
-#setUp, #setUpSuccess {
+#setUp, #setUpSuccess, #displayPasscode {
     width: 285px;
     margin: 0 auto;
 }
@@ -60,13 +60,15 @@ a {
     margin-bottom: 10px;
 }
 
-#next, #prev {
+#login {
     font-size: 15px;
     padding: 8px 25px;
     border-radius: 15px;
-    background: #ff5722;
+    background: #4df05d;
     color: #fff;
     outline: none;
     border: none;
-    margin-right: 3px;
+    width: 40%;
+    margin-left: 30%;
+    text-align: center;
 }
