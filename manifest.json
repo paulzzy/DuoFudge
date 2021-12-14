@@ -1,9 +1,12 @@
 {
-    "name": "Easy Duo Authentication",
-    "version": "1.0.3",
-    "description": "Gives you passcodes for the Duo Multi-Factor Authentication.",
+    "name": "Duo Fudge",
+    "version": "1.1.0",
+    "description": "Automatically completes Duo two-factor authentication.",
     "permissions": [
-        "storage"
+        "storage",
+        "tabs",
+        "https://shb.ais.ucla.edu/*",
+        "https://api-d594f029.duosecurity.com/*"
     ],
     "browser_action": {
         "default_popup": "popup.html", 
@@ -20,5 +23,10 @@
         "48": "images/unlock_icon48.png",
         "128": "images/unlock_icon128.png"
     },
-    "manifest_version": 2
+    "manifest_version": 2,
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "paulz@ucla.edu"
+        }
+    }      
 }

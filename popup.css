@@ -9,10 +9,10 @@
 }
 
 body {
-    font-family: "微软雅黑";
+    font-family: sans-serif;
 }
 
-#setUp, #setUpSuccess, #displayPasscode {
+#setUp, #setUpSuccess {
     width: 285px;
     margin: 0 auto;
 }
