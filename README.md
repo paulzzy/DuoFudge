@@ -1,6 +1,6 @@
 # Duo Fudge
  
-A Firefox extension that automatically completes (fudges) [Duo two-factor authentication](https://guide.duo.com/prompt).
+A Firefox extension that automatically completes (fudges) [Duo two-factor authentication](https://guide.duo.com/prompt). Only for MyUCLA login.
 
 <img src="screenshots/auth_demo.gif" width="600">
 
