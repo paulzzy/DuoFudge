@@ -18,7 +18,7 @@ C += 1
 Once the authenticated inputs a passcode, the authenticator will verify the passcode by calculating HOTP(K, C) for C in a reasonable interval [C, C+n]. If a match is found, then the authentication succeeds. Therefore, if we manage to get the secret key from Duo, we can calculate the exact same passcodes as Duo would. 
 
 ## Set Up
-1. Lol I haven't added Duo Fudge to [AMO](https://addons.mozilla.org/en-US/firefox/) yet. But if you manually build and install through ```about:debugging```, just continue with the below instructions.
+1. Click [here](https://github.com/paulzzy/DuoFudge/releases/download/1.1.1/duo_fudge-1.1.1-fx.xpi) to install Duo Fudge. Only for Firefox.
 
 If you open the extension, it should look like this (pretend it's Firefox).
 
